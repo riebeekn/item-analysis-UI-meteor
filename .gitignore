@@ -6,4 +6,5 @@
 
 # Ignore items containing private keys etc.
 /lib/env_var.js
+*.txt
 
