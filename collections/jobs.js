@@ -17,7 +17,6 @@ Meteor.methods({
   },
 
   setStatusToPending: function(id) {
-    console.log(id);
     Jobs.update(id, {$set: {status: "Pending"}});
   }
 });

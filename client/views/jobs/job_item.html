@@ -1,7 +1,14 @@
 <template name="jobItem">
   <div class="job">
     <div class="job-content">
-    	Job: {{_id}}  |
+      {{#if done}}
+        <a href='https://s3.amazonaws.com/nico44-ian/{{_id}}/output/item_analysis_{{_id}}.pdf' 
+          target='_blank'>
+          Job: {{_id}}
+        </a> |
+      {{else}}
+        Job: {{_id}} |
+      {{/if}}
       Status: {{status}}  |
       Worker: {{worker}}  |
       Duration:  {{duration}}  |

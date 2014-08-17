@@ -34,8 +34,6 @@ var updateJob = function(id) {
   Meteor.call('setStatusToPending', id, function(error) {
     if (error) {
       alert('roll back?');
-    } else {
-      console.log("update ok");
     }
   })
 }
@@ -51,8 +49,6 @@ var saveFile = function(blob, name, path, type, callback) {
       encoding, blob.type, function(err, res) {
         if (err) {
           alert("error... need to roll-back");
-        } else {
-          console.log("insert ok");
         }
       });
   }

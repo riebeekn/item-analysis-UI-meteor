@@ -12,5 +12,16 @@ Template.jobItem.helpers({
   	} else {
 	  	return (this.job_stop - this.created_at) / 1000 + " s";
 	  }
+  },
+  done: function() {
+    return this.status === "Done";
+  },
+  jobIdDisplay: function() {
+    if (this.status === "Done") {
+      
+      return "done!";
+    } else {
+      return this._id;
+    }
   }
 });
