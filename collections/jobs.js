@@ -14,5 +14,10 @@ Meteor.methods({
     var jobId = Jobs.insert(job);
 
     return jobId;
+  },
+
+  setStatusToPending: function(id) {
+    console.log(id);
+    Jobs.update(id, {$set: {status: "Pending"}});
   }
 });

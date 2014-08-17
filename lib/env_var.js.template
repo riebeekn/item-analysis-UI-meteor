@@ -1,0 +1,12 @@
+// This file contains the ENV vars necessary to run the app locally.  
+// Some of these values are sensitive, and some are developer specific.
+//
+// DO NOT CHECK THIS FILE INTO VERSION CONTROL
+
+if (Meteor.isServer) {
+	if (process.env.NODE_ENV === "development") {
+		process.env.AWS_BUCKET = aws bucket;
+		process.env.AWS_ACCESS_KEY_ID = aws key;
+		process.env.AWS_SECRET_ACCESS_KEY = aws secret;
+	}
+}
