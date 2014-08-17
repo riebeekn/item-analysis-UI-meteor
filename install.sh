@@ -23,9 +23,6 @@ echo "**** STARTING INSTALLATION ****"
 echo "    ---> Creating heroku app $1"
 heroku create $1 --stack cedar --app $1 --buildpack https://github.com/jagi/heroku-buildpack-meteor.git
 
-echo "    ---> Pushing app $1 to heroku"
-git push heroku master
-
 echo "    ---> Configuring $1"
 # set the meteor root url
 heroku config:set ROOT_URL=http://$1.herokuapp.com/
@@ -39,4 +36,7 @@ heroku config:add AWS_BUCKET=$2
 heroku config:add AWS_ACCESS_KEY_ID=$3
 # set the AWS secret
 heroku config:add AWS_SECRET_ACCESS_KEY=$4
+
+echo "    ---> Pushing app $1 to heroku"
+git push heroku master
 echo "**** INSTALLATION COMPLETE ****"
