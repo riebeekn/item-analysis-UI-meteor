@@ -25,17 +25,17 @@ heroku create $1 --stack cedar --app $1 --buildpack https://github.com/jagi/hero
 
 echo "    ---> Configuring $1"
 # set the meteor root url
-heroku config:set ROOT_URL=http://$1.herokuapp.com/
+heroku config:set ROOT_URL=http://$1.herokuapp.com/ --app $1
 # add mongo
-heroku addons:add mongohq:sandbox
+heroku addons:add mongohq:sandbox --app $1
 # set the mongo url
-heroku config:set MONGO_URL=$(heroku config:get MONGOHQ_URL)
+heroku config:set MONGO_URL=$(heroku config:get MONGOHQ_URL) --app $1
 # set the AWS bucket
-heroku config:add AWS_BUCKET=$2
+heroku config:add AWS_BUCKET=$2 --app $1
 # set the AWS key
-heroku config:add AWS_ACCESS_KEY_ID=$3
+heroku config:add AWS_ACCESS_KEY_ID=$3 --app $1
 # set the AWS secret
-heroku config:add AWS_SECRET_ACCESS_KEY=$4
+heroku config:add AWS_SECRET_ACCESS_KEY=$4 --app $1
 
 echo "    ---> Pushing app $1 to heroku"
 git push heroku master
