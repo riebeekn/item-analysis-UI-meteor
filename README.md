@@ -1,6 +1,6 @@
 # Item Analysis UI - Meteor
 
-A very simple throw-away UI for interacting with the [Meteor branch of the item analysis meteor worker](https://github.com/riebeekn/item-analysis-worker/tree/mongo) app.
+A very simple throw-away UI for interacting with the [Mongo branch of the item analysis meteor worker](https://github.com/riebeekn/item-analysis-worker/tree/mongo) app.
 
 ## Installation (local)
 * Copy /lib/env_var.js.template to env_var.js and fill in the appropriate values.
