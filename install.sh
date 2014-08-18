@@ -31,12 +31,14 @@ echo "    ---> Configuring $1"
 heroku config:set ROOT_URL=http://$1.herokuapp.com/ --app $1
 
 ########################################################
-# CAN SKIP THE BELOW AS THE BUILDPACK PROVISIONS MONGO
+# BUILDPACK PROVISIONS MONGO, USE MONGOHQ INSTEAD
 ########################################################
+# remove mongo
+heroku addons:remove mongolab --app $1 --confirm $1
 # add mongo
-#heroku addons:add mongohq:sandbox --app $1
+heroku addons:add mongohq:sandbox --app $1
 # set the mongo url
-#heroku config:set MONGO_URL=$(heroku config:get MONGOHQ_URL) --app $1
+heroku config:set MONGO_URL=$(heroku config:get MONGOHQ_URL) --app $1
 
 # set the AWS bucket
 heroku config:add AWS_BUCKET=$2 --app $1
