@@ -19,7 +19,7 @@ Meteor.methods({
       'x-amz-acl': 'public-read'
     },  function(err, res) {
           if (err) {
-            console.log("***!!!" + err "!!!***");
+            console.log("***!!!" + err + "!!!***");
           }
           fut.return(name);
         }
