@@ -21,7 +21,8 @@ fi
 
 echo "**** STARTING INSTALLATION ****"
 echo "    ---> Creating heroku app $1"
-heroku create $1 --stack cedar --app $1 --buildpack https://github.com/johnnypez/heroku-buildpack-mrt
+# heroku create $1 --stack cedar --app $1 --buildpack https://github.com/johnnypez/heroku-buildpack-mrt
+heroku create $1 --stack cedar --app $1 --buildpack https://github.com/riebeekn/heroku-buildpack-mrt#no-mongolab
 
 echo "    ---> Pushing app $1 to heroku"
 git push heroku master
@@ -34,7 +35,7 @@ heroku config:set ROOT_URL=http://$1.herokuapp.com/ --app $1
 # BUILDPACK PROVISIONS MONGO, USE MONGOHQ INSTEAD
 ########################################################
 # remove mongo
-heroku addons:remove mongolab --app $1 --confirm $1
+# heroku addons:remove mongolab --app $1 --confirm $1
 # add mongo
 heroku addons:add mongohq:sandbox --app $1
 # set the mongo url
