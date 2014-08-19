@@ -34,7 +34,7 @@ heroku config:set ROOT_URL=http://$1.herokuapp.com/ --app $1
 # BUILDPACK PROVISIONS MONGO, USE MONGOHQ INSTEAD
 ########################################################
 # remove mongo
-heroku addons:remove mongolab --app $1 --confirm $1
+# heroku addons:remove mongolab --app $1 --confirm $1
 # add mongo
 heroku addons:add mongohq:sandbox --app $1
 # set the mongo url
