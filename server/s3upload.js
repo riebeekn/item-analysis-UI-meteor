@@ -9,7 +9,6 @@ Meteor.methods({
       bucket: process.env.AWS_BUCKET
     });
 
-    console.log("** " + process.env.AWS_BUCKET);
     Future = Meteor.require('fibers/future');
     var fut = new Future();
     var buffer = new Buffer(blob, 'binary');
@@ -18,9 +17,6 @@ Meteor.methods({
       'Content-Type':type,
       'x-amz-acl': 'public-read'
     },  function(err, res) {
-          if (err) {
-            console.log("***!!!" + err + "!!!***");
-          }
           fut.return(name);
         }
     );
